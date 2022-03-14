@@ -1,2 +1,2 @@
 echo off
-copy latexmk.bat "%SCRIPTS%\\latexmk.bat"
+copy latexmk.pl "%SCRIPTS%\\latexmk.pl"
