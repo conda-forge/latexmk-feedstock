@@ -1,5 +1,3 @@
-rem echo off
-echo %cd%
-dir
+echo off
 if not exist "%SCRIPTS%" md "%SCRIPTS%"
 copy latexmk.pl "%SCRIPTS%\\latexmk.pl"
