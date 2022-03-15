@@ -22,7 +22,8 @@ requirements:
 
 test:
   commands:
-    - latexmk -h
+    - latexmk -h                # [not win]
+    - perl -S latexmk.pl -h     # [win]
 
 about:
   home: http://personal.psu.edu/jcc8//software/latexmk-jcc/
