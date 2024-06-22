@@ -1,8 +1,8 @@
 {% set name = "latexmk" %}
 {% set major = "4" %}
-{% set minor = "76" %}
+{% set minor = "85" %}
 {% set version = major + "." + minor %}
-{% set sha256 = "9abb87da4666d6078c9006dbb32dc2a7cb3996fc2f76b0c6c5c73311a50ac89e" %}
+{% set sha256 = "66c53f50f74fa3d7c651a3e9166856706b6196d58da1f4167630183a4abdc325" %}
 
 package:
   name: {{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.zip
-  url: http://personal.psu.edu/jcc8/software/latexmk/latexmk-{{ major }}{{ minor }}.zip
+  url: https://www.cantab.net/users/johncollins/latexmk/latexmk-{{ major }}{{ minor }}.zip
   sha256: {{ sha256 }}
 
 build:
