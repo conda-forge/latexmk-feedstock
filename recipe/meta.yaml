@@ -1,8 +1,8 @@
 {% set name = "latexmk" %}
 {% set major = "4" %}
-{% set minor = "85" %}
+{% set minor = "86a" %}
 {% set version = major + "." + minor %}
-{% set sha256 = "66c53f50f74fa3d7c651a3e9166856706b6196d58da1f4167630183a4abdc325" %}
+{% set sha256 = "9df333f6122c88690724513f5daa94845728f131fddcda0a4977ff9a4455fb31" %}
 
 package:
   name: {{ name|lower }}
