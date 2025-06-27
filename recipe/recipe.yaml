@@ -1,37 +1,40 @@
-{% set name = "latexmk" %}
-{% set major = "4" %}
-{% set minor = "86a" %}
-{% set version = major + "." + minor %}
-{% set sha256 = "9df333f6122c88690724513f5daa94845728f131fddcda0a4977ff9a4455fb31" %}
+schema_version: 1
+
+context:
+  name: latexmk
+  major: 4
+  minor: 86a
+  version: ${{ major + "." + minor }}
+  sha256: 9df333f6122c88690724513f5daa94845728f131fddcda0a4977ff9a4455fb31
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.zip
-  url: https://www.cantab.net/users/johncollins/latexmk/latexmk-{{ major }}{{ minor }}.zip
-  sha256: {{ sha256 }}
+  url: https://www.cantab.net/users/johncollins/latexmk/latexmk-${{ major }}${{ minor }}.zip
+  sha256: ${{ sha256 }}
+  file_name: ${{ name }}-${{ version }}.zip
 
 build:
+  number: 1
   noarch: generic
-  number: 0
 
 requirements:
   run:
     - perl
 
-test:
-  commands:
-    - latexmk -h                # [not win]
-    - perl -S latexmk.pl -h     # [win]
+tests:
+  - script:
+      - if: not win
+        then: latexmk -h
+      - if: win
+        then: perl -S latexmk.pl -h
 
 about:
-  home: http://personal.psu.edu/jcc8//software/latexmk-jcc/
   license: GPL-2.0-or-later
-  license_family: GPL
   license_file: COPYING
-  summary: 'A perl script for running LaTeX the correct number of times'
+  summary: A perl script for running LaTeX the correct number of times
   description: |
     Latexmk is a perl script for running LaTeX the correct number of times to
     resolve cross references, etc; it also runs auxiliary programs (bibtex,
@@ -39,6 +42,9 @@ about:
     It has a number of other useful capabilities, for example to start
     a previewer and then run latex whenever the source files are updated,
     so that the previewer gives an up-to-date view of the document.
+
+
+  homepage: http://personal.psu.edu/jcc8//software/latexmk-jcc/
 
 extra:
   recipe-maintainers:
