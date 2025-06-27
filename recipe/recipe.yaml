@@ -14,11 +14,15 @@ package:
 source:
   url: https://www.cantab.net/users/johncollins/latexmk/latexmk-${{ major }}${{ minor }}.zip
   sha256: ${{ sha256 }}
-  file_name: ${{ name }}-${{ version }}.zip
 
 build:
   number: 0
   noarch: generic
+  script:
+    - mkdir -p "${PREFIX}/bin"
+    - cp latexmk.pl "${PREFIX}/bin/latexmk"
+    - mkdir -p "${PREFIX}/man/man1"
+    - cp latexmk.1 "${PREFIX}/man/man1/latexmk.1"
 
 requirements:
   run:
@@ -26,10 +30,7 @@ requirements:
 
 tests:
   - script:
-      - if: not win
-        then: latexmk -h
-      - if: win
-        then: perl -S latexmk.pl -h
+    - latexmk -h
 
 about:
   license: GPL-2.0-or-later
