@@ -2,8 +2,8 @@ schema_version: 1
 
 context:
   name: latexmk
-  major: 4
-  minor: 87
+  major: "4"
+  minor: "87"
   version: ${{ major + "." + minor }}
   sha256: 067ec36acc1cd29b15516e175bb3f7c4cf955a4a45714a8e19c022716ea7e007
 
