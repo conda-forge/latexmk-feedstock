@@ -3,9 +3,9 @@ schema_version: 1
 context:
   name: latexmk
   major: 4
-  minor: 86a
+  minor: 87
   version: ${{ major + "." + minor }}
-  sha256: 9df333f6122c88690724513f5daa94845728f131fddcda0a4977ff9a4455fb31
+  sha256: 067ec36acc1cd29b15516e175bb3f7c4cf955a4a45714a8e19c022716ea7e007
 
 package:
   name: ${{ name|lower }}
@@ -17,7 +17,7 @@ source:
   file_name: ${{ name }}-${{ version }}.zip
 
 build:
-  number: 1
+  number: 0
   noarch: generic
 
 requirements:
