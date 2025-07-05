@@ -1,0 +1,64 @@
+schema_version: 1
+
+context:
+  name: latexmk
+  major: "4"
+  minor: "87"
+  version: ${{ major + "." + minor }}
+  sha256: 067ec36acc1cd29b15516e175bb3f7c4cf955a4a45714a8e19c022716ea7e007
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://www.cantab.net/users/johncollins/latexmk/latexmk-${{ major }}${{ minor }}.zip
+  sha256: ${{ sha256 }}
+
+build:
+  number: 0
+  noarch: generic
+  script:
+    - if: unix
+      then:
+        - mkdir -p "${PREFIX}/bin"
+        - cp latexmk.pl "${PREFIX}/bin/latexmk"
+        - mkdir -p "${PREFIX}/man/man1"
+        - cp latexmk.1 "${PREFIX}/man/man1/latexmk.1"
+    - if: win
+      then:
+        - echo off
+        - if not exist "%SCRIPTS%" md "%SCRIPTS%"
+        - copy latexmk.pl "%SCRIPTS%\\latexmk.pl"
+
+requirements:
+  run:
+    - perl
+
+tests:
+  - script:
+      - if: unix
+        then: latexmk -h
+      - if: win
+        then: perl -S latexmk.pl -h
+
+about:
+  license: GPL-2.0-or-later
+  license_file: COPYING
+  summary: A perl script for running LaTeX the correct number of times
+  description: |
+    Latexmk is a perl script for running LaTeX the correct number of times to
+    resolve cross references, etc; it also runs auxiliary programs (bibtex,
+    makeindex if necessary, and dvips and/or a previewer as requested).
+    It has a number of other useful capabilities, for example to start
+    a previewer and then run latex whenever the source files are updated,
+    so that the previewer gives an up-to-date view of the document.
+
+
+  homepage: http://personal.psu.edu/jcc8//software/latexmk-jcc/
+
+extra:
+  recipe-maintainers:
+    - scopatz
+    - xileF1337
+    - JaRoSchm

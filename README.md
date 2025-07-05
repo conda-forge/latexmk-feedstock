@@ -16,7 +16,6 @@ It has a number of other useful capabilities, for example to start
 a previewer and then run latex whenever the source files are updated,
 so that the previewer gives an up-to-date view of the document.
 
-
 Current build status
 ====================
 
