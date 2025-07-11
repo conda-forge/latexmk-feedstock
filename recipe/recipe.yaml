@@ -2,9 +2,7 @@ schema_version: 1
 
 context:
   name: latexmk
-  major: "4"
-  minor: "87"
-  version: ${{ major + "." + minor }}
+  version: 4.87
   sha256: 067ec36acc1cd29b15516e175bb3f7c4cf955a4a45714a8e19c022716ea7e007
 
 package:
@@ -12,11 +10,11 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://www.cantab.net/users/johncollins/latexmk/latexmk-${{ major }}${{ minor }}.zip
+  url: https://www.cantab.net/users/johncollins/latexmk/latexmk-${{ version | replace('.', '') }}.zip
   sha256: ${{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   noarch: generic
   script:
     - if: unix
