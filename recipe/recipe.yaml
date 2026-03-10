@@ -2,8 +2,8 @@ schema_version: 1
 
 context:
   name: latexmk
-  version: 4.87
-  sha256: 067ec36acc1cd29b15516e175bb3f7c4cf955a4a45714a8e19c022716ea7e007
+  version: "4.88"
+  sha256: b145a1ccfbde15985a517341dbd6510d391dfc21919c649669ebc977d91aa57f
 
 package:
   name: ${{ name|lower }}
@@ -14,7 +14,7 @@ source:
   sha256: ${{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   noarch: generic
   script:
     - if: unix
