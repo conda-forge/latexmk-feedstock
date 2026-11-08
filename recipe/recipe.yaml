@@ -2,8 +2,8 @@ schema_version: 1
 
 context:
   name: latexmk
-  version: "4.88"
-  sha256: b145a1ccfbde15985a517341dbd6510d391dfc21919c649669ebc977d91aa57f
+  version: "4.89"
+  sha256: c4d81e08dbcd3a5e0d1dd1834b577633c832c2eb69f2a70155052daf82644527
 
 package:
   name: ${{ name|lower }}
